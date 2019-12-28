@@ -1,21 +1,66 @@
 <hello name="{{ name }}"></hello>
 
-<div class="collapsable-widget">
-	<div class="wtitle pointer" (click)="toggleBody()" >
-    <span>
-      <fa-icon icon="chevron-right" *ngIf="collapsed"></fa-icon>
-      <fa-icon icon="chevron-down"  *ngIf="!collapsed"></fa-icon>
-      Collapsable Widget
-    </span>
-	</div>
-  <div class="wbody" #wbody [@openClose]="!collapsed ? 'open' : 'closed'">
-    <p>line 1 of the body</p>
-    <p>line 2 of the body</p>
-    <p>line 3 of the body</p>
-    <p>line 4 of the body</p>
-  </div>
+<app-collapsible title="Info" [bodyTemplate]="info"></app-collapsible>
+<ng-template #info>
+  <div class="card mb-1">
+    <div class="card-body">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="firstname">First Name</label>
+                <input type="text" class="form-control form-control-sm" id="firstname">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="lastname">Last Name</label>
+                <input type="text" class="form-control form-control-sm" id="lastname">
+            </div>
+        </div>
+    </div>
 </div>
+</ng-template>
+<hr>
 
-<div>
-  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+<!-- address -->
+<app-collapsible title="Address" [bodyTemplate]="address"></app-collapsible>
+<ng-template #address>
+  <div class="card mb-1">
+    <div class="card-body">
+        <div class="form-group">
+            <label for="inputAddress">ADDRESS</label>
+            <input type="text" class="form-control form-control-sm" id="inputAddress" placeholder="1234 Main St">
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputCity">CITY</label>
+                <input type="text" class="form-control form-control-sm" id="inputCity">
+            </div>
+            <div class="form-group col-md-2">
+                <label for="prov">PROV</label>
+                <input type="text" class="form-control form-control-sm" id="prov">
+            </div>
+            <div class="form-group col-md-2">
+                <label for="pc">P.C</label>
+                <input type="text" class="form-control form-control-sm" id="pc">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">EMAIL</label>
+                <input type="email" class="form-control form-control-sm" id="inputEmail4">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="tel">TEL</label>
+                <input type="text" class="form-control form-control-sm" id="tel">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="cell">CELL</label>
+                <input type="text" class="form-control form-control-sm" id="cell">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="dob">D.O.B</label>
+                <input type="text" class="form-control form-control-sm" id="dob">
+            </div>
+        </div>
+    </div>
 </div>
+</ng-template>

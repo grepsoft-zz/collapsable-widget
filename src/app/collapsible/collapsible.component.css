@@ -1,0 +1,13 @@
+.wtitle {
+  background: rgb(237, 239, 240);
+  padding: 0.5em;
+}
+
+.wbody {
+  background: whitesmoke;
+  padding: 0.25em;
+}
+
+.pointer {
+  cursor: pointer;
+}

@@ -1,17 +1,54 @@
-import { Component, OnInit, Input, TemplateRef } from '@angular/core';
-
+import { Component, OnInit, Input, TemplateRef } from "@angular/core";
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  // ...
+} from '@angular/animations';
 @Component({
-  selector: 'app-collapsible',
-  templateUrl: './collapsible.component.html',
-  styleUrls: ['./collapsible.component.css']
+  selector: "app-collapsible",
+  styleUrls: ["./collapsible.component.css"],
+  template: `
+    <div class="wtitle pointer" (click)="toggleBody()">
+      <span>
+        <fa-icon icon="chevron-right" *ngIf="collapsed"></fa-icon>
+        <fa-icon icon="chevron-down" *ngIf="!collapsed"></fa-icon>
+        {{title}}
+      </span>
+    </div>
+    <div class="wbody" [@openClose]="!collapsed ? 'open' : 'closed'">
+      <ng-template [ngTemplateOutlet]="bodyTemplate"></ng-template>
+    </div>
+  `,
+  animations: [    
+    trigger('openClose', [
+      // ...
+      state('open', style({
+        display: 'block',
+        opacity: 1
+      })),
+      state('closed', style({
+        display: 'none',
+        opacity: 0
+      })),
+      transition('* => *', [
+        animate('0.5s')
+      ]),
+    ]),]  
 })
 export class CollapsibleComponent implements OnInit {
+  @Input() bodyTemplate: TemplateRef<any>;
+  @Input() title : string;
 
-  @Input() bodyRef : TemplateRef<any>;
+  collapsed: boolean = false;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
+  toggleBody() {
+    this.collapsed = !this.collapsed;
+  }  
 }
