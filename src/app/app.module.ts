@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
+import { CollapsibleComponent } from './collapsible/collapsible.component';
 
 import {
   FontAwesomeModule,
@@ -17,7 +18,7 @@ import {
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule,FontAwesomeModule, BrowserAnimationsModule],
-  declarations: [ AppComponent, HelloComponent ],
+  declarations: [ AppComponent, HelloComponent, CollapsibleComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule {
